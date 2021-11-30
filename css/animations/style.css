@@ -1,0 +1,78 @@
+/* ▼ WHERE YOUR CODE BEGINS */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 216px;
+}
+
+.loading-title {
+  font-size: 18px;
+  color: #151B26;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
+  animation-name: flicker;
+  animation-duration: 1600ms;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  margin-bottom: 20px;
+}
+
+
+.progress-bar {
+  position: relative;
+  width: 300px;
+  height: 12px;
+  background-color: #E5EAEF;
+  border-radius: 100px;
+}
+
+.progress-bar-gauge {
+  animation-name: move-bar;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #13CE66;
+  height: 12px;
+  border-radius: 100px;
+
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes move-bar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -15,7 +15,9 @@
 *.wma
 *.ogg
 *.flac
-
+node_modules
+dist/*
+*.log
 ### Video ###
 *.3g2
 *.3gp

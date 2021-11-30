@@ -1,0 +1,69 @@
+.btn {
+
+  /* link는 방문 전 링크 상태 */
+  /* a태그 한번 눌렀을때 커스텀 기본은 퍼플 */
+  /* active는 클릭했을때 */
+  /* 순서 link visited hover active 순으로 하는거 권장*/
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.03rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &--white {
+    background-color:
+      $color-white;
+    color: $color-dark-gray;
+
+    &::after {
+      background-color:
+        $color-white;
+    }
+  }
+
+  /* conent is always necessary */
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: all .4s;
+  }
+
+
+  /* animation-fill-mode는 css 애니메이션 실행 전과 후에 대상에 스타일을 적용하는 방법을 지정 */
+  /* forwards - 애니메이션이 끝난 후 마지막 keyframe에 의해 설정된 값을 유지 */
+  /* backwards - 애니메이션의 스타일(@keyframes{}안 에 저정된 스타일)을 애니메이션이 실제로 시작되기 전에 미리 적용 */
+  /* both - 애니메이션은 앞뒤 양쪽 모두의 규칙을 따르므로 애니메이션 속석이 양방향으로 확장 */
+  &--animated {
+    animation: moveUp .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+}
