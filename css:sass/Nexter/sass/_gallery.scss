@@ -8,6 +8,10 @@
   padding: 1.5rem;
   object-fit: cover;
 
+  @include bp(500) {
+    padding: 0;
+  }
+
   &__item {
     &--1 {
       grid-row: 1/ span 2;

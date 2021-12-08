@@ -4,6 +4,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 7rem;
+
+  @include bp(500) {
+    margin: 1rem 0;
+  }
 }
 
 .home {

@@ -16,7 +16,11 @@ sans-serif;
 $font-display: 'Josefin Sans',
 sans-serif;
 
-
+@mixin bp($breakpoint) {
+  @media screen and (max-width: $breakpoint+'px') {
+    @content
+  }
+}
 
 *,
 *::before,
@@ -29,6 +33,10 @@ sans-serif;
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  @include bp(1200) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -45,6 +53,16 @@ body {
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   // 최소 min-content사이즈 최대 14rem;
   // grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+  @include bp(1000) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @include bp(800) {
+    grid-template-rows: 6rem calc(100vh - 6rem);
+  }
+
 
 
 }
